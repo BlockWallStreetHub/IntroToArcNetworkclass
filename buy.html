@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intro to Arc Network — Get the Bundle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-1:#050A14; --navy-2:#0A1224; --navy-3:#101B33; --navy-4:#16223d;
+    --gold:#D4AF37; --gold-2:#F3D77A; --gold-dim:#8a7228;
+    --text:#EDEFF5; --text-dim:#9AA3B5; --green:#4ADE80; --border:#233152;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:radial-gradient(1200px 800px at 20% -10%, #14213f 0%, var(--navy-1) 55%);color:var(--text);font-family:'Barlow',sans-serif;line-height:1.6;padding-bottom:60px;}
+  h1,h2,.headline{font-family:'Bebas Neue',sans-serif;letter-spacing:.03em;}
+  .mono{font-family:'DM Mono',monospace;}
+  a{color:var(--gold-2);}
+  main{max-width:760px;margin:0 auto;padding:0 20px;}
+
+  .hero{padding:60px 24px 30px;text-align:center;border-bottom:1px solid var(--border);}
+  .hero .eyebrow{color:var(--gold);font-family:'DM Mono',monospace;letter-spacing:.25em;font-size:.72rem;text-transform:uppercase;}
+  .hero h1{font-size:clamp(2rem,5.5vw,3.2rem);background:linear-gradient(120deg,var(--gold-2),var(--gold),#fff5d6);-webkit-background-clip:text;background-clip:text;color:transparent;margin:.3em 0 .2em;}
+  .hero p.sub{color:var(--text-dim);max-width:560px;margin:0 auto;font-size:1rem;}
+
+  .included{background:var(--navy-3);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:28px 0;}
+  .included h2{font-size:1.4rem;color:var(--gold-2);margin-bottom:14px;font-family:'Barlow',sans-serif;font-weight:700;}
+  .included ul{list-style:none;}
+  .included li{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);color:#dfe3ee;font-size:.95rem;}
+  .included li:last-child{border-bottom:none;}
+  .included li .check{color:var(--green);font-weight:700;}
+
+  .price-banner{text-align:center;margin:26px 0;}
+  .price-banner .amt{font-family:'Bebas Neue';font-size:3.2rem;color:var(--gold-2);}
+  .price-banner .note{color:var(--text-dim);font-size:.85rem;}
+
+  h2.section-title{font-size:1.6rem;text-align:center;color:#fff;margin:34px 0 18px;}
+
+  .pay-grid{display:grid;grid-template-columns:1fr;gap:16px;}
+  .pay-card{background:var(--navy-3);border:1px solid var(--border);border-radius:14px;padding:22px;}
+  .pay-card .ptag{font-family:'DM Mono',monospace;color:var(--gold);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px;display:block;}
+  .pay-card h3{font-size:1.2rem;color:#fff;margin-bottom:4px;font-family:'Barlow',sans-serif;font-weight:700;}
+  .pay-card .amount{font-family:'DM Mono',monospace;color:var(--gold-2);font-size:1.1rem;margin-bottom:12px;}
+  .pay-card p{color:var(--text-dim);font-size:.88rem;margin-bottom:10px;}
+  .btn{display:inline-block;padding:12px 24px;border-radius:10px;background:linear-gradient(120deg,var(--gold),var(--gold-2));color:#1a1400;font-weight:700;text-decoration:none;font-size:.92rem;border:none;cursor:pointer;}
+  .btn.secondary{background:var(--navy-4);color:var(--text);border:1px solid var(--border);}
+
+  .addr-row{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--navy-1);border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-bottom:8px;}
+  .addr-row .label{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--gold);text-transform:uppercase;min-width:40px;}
+  .addr-row .addr{font-family:'DM Mono',monospace;font-size:.76rem;color:var(--text-dim);word-break:break-all;flex:1;}
+  .copy-btn{background:var(--navy-4);border:1px solid var(--gold-dim);color:var(--gold-2);font-family:'DM Mono',monospace;font-size:.7rem;padding:5px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;}
+  .copy-btn.copied{color:var(--green);border-color:var(--green);}
+
+  .card.info{border-left:3px solid var(--gold);background:rgba(212,175,55,.07);border-radius:0 10px 10px 0;padding:14px 16px;margin-top:10px;font-size:.85rem;color:var(--text-dim);}
+
+  /* RSVP FORM */
+  .form-wrap{background:var(--navy-3);border:1px solid var(--gold-dim);border-radius:14px;padding:26px;margin:34px 0;}
+  .form-wrap h2{font-size:1.4rem;color:var(--gold-2);margin-bottom:6px;font-family:'Barlow',sans-serif;font-weight:700;}
+  .form-wrap p.desc{color:var(--text-dim);font-size:.88rem;margin-bottom:18px;}
+  label{display:block;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;margin-top:14px;}
+  input,select,textarea{
+    width:100%;padding:11px 13px;border-radius:8px;border:1px solid var(--border);
+    background:var(--navy-1);color:var(--text);font-family:'Barlow',sans-serif;font-size:.92rem;
+  }
+  textarea{resize:vertical;min-height:70px;}
+  .submit-btn{margin-top:20px;width:100%;padding:13px;font-size:.95rem;}
+  #formMsg{margin-top:14px;font-size:.88rem;display:none;}
+  #formMsg.ok{color:var(--green);}
+  #formMsg.err{color:#f87171;}
+
+  footer{text-align:center;color:var(--text-dim);font-size:.8rem;margin-top:40px;padding:0 20px;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="eyebrow">Block Wall Street</div>
+  <h1>INTRO TO ARC NETWORK</h1>
+  <p class="sub">The full bundle: the recorded class tutorial, the complete Arc Uncovered course, and the student study guide — everything you need to actually understand what's happening on Circle's Arc network.</p>
+</div>
+
+<main>
+  <div class="included">
+    <h2>What's included</h2>
+    <ul>
+      <li><span class="check">✓</span> Full recorded class tutorial</li>
+      <li><span class="check">✓</span> Arc Uncovered — the complete course</li>
+      <li><span class="check">✓</span> Arc Student Study Guide — with practice exam</li>
+    </ul>
+  </div>
+
+  <div class="price-banner">
+    <div class="amt">$65</div>
+    <div class="note">Same price, any payment method below</div>
+  </div>
+
+  <h2 class="section-title">Choose your route</h2>
+  <div class="pay-grid">
+
+    <div class="pay-card">
+      <span class="ptag">Card · Instant Access</span>
+      <h3>Pay with Card (Stripe)</h3>
+      <div class="amount">$65.00</div>
+      <p>Fastest option — you're taken straight to your access page the moment payment clears. No waiting on manual verification.</p>
+      <a class="btn" href="https://buy.stripe.com/5kQbJ37HG1encDsabe2sM08" target="_blank" rel="noopener">Pay with Card →</a>
+    </div>
+
+    <div class="pay-card">
+      <span class="ptag">Chime (P2P)</span>
+      <h3>Pay via Chime</h3>
+      <div class="amount">$65.00</div>
+      <p>Send $65 to <strong>Amir-Hodari-el</strong> and note <strong>"Arc Bundle"</strong> plus your email in the memo so we can match your payment. Then fill out the confirmation form below — access goes out once we verify the payment landed.</p>
+      <a class="btn secondary" href="https://app.chime.com/link/qr?u=Amir-Hodari-el" target="_blank" rel="noopener">Open Chime →</a>
+    </div>
+
+    <div class="pay-card">
+      <span class="ptag">Crypto</span>
+      <h3>Pay with Crypto</h3>
+      <div class="amount">$65.00 equivalent</div>
+      <p>Send the equivalent of $65 at time of transfer to any address below, then fill out the confirmation form with your transaction hash — access goes out once we verify it onchain.</p>
+
+      <div class="addr-row">
+        <span class="label">SOL</span>
+        <span class="addr" id="addr-sol">HjUtHhcpLc9a5yAAAeGzTaidmgNh6CL3PNLE6TTLYXEV</span>
+        <button class="copy-btn" onclick="copyAddr('addr-sol', this)">Copy</button>
+      </div>
+      <div class="addr-row">
+        <span class="label">EVM</span>
+        <span class="addr" id="addr-evm">0x5FC836a0518973D7FE20081F7b19EE207E6b324C</span>
+        <button class="copy-btn" onclick="copyAddr('addr-evm', this)">Copy</button>
+      </div>
+      <div class="addr-row">
+        <span class="label">BTC</span>
+        <span class="addr" id="addr-btc">bc1qayrmw6xnljvfe4kk7k740tzh55smww3mx0u7e8</span>
+        <button class="copy-btn" onclick="copyAddr('addr-btc', this)">Copy</button>
+      </div>
+      <div class="card info">EVM address works across ETH, Base, Polygon, Avalanche, and Robinhood Chain.</div>
+    </div>
+  </div>
+
+  <div class="form-wrap">
+    <h2>Confirm your Chime or Crypto payment</h2>
+    <p class="desc">Only needed if you paid via Chime or crypto. Card payments through Stripe unlock automatically — skip this form.</p>
+
+    <form id="rsvpForm">
+      <input type="hidden" name="access_key" value="cbde23f6-f617-4b16-953f-7b0aab0e9f58">
+      <input type="hidden" name="subject" value="New Arc Network Bundle Payment Confirmation">
+      <input type="hidden" name="from_name" value="Arc Network Bundle Page">
+
+      <label for="name">Full name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email (where we'll send your access link)</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="method">Payment method</label>
+      <select id="method" name="Payment Method" required>
+        <option value="">Select one</option>
+        <option value="Chime">Chime</option>
+        <option value="Crypto - SOL">Crypto — SOL</option>
+        <option value="Crypto - EVM">Crypto — EVM (ETH/Base/Polygon/Avalanche/Robinhood Chain)</option>
+        <option value="Crypto - BTC">Crypto — BTC</option>
+      </select>
+
+      <label for="ref">Transaction hash / Chime confirmation note</label>
+      <textarea id="ref" name="Transaction Reference" placeholder="Paste your transaction hash, or note what name the Chime payment came from" required></textarea>
+
+      <button type="submit" class="btn submit-btn">Submit for Verification</button>
+      <div id="formMsg"></div>
+    </form>
+  </div>
+
+  <footer>
+    Once your payment is verified, you'll receive an email with your personal access link to the tutorial and both courses.<br>
+    Questions? Reply to your confirmation email.
+  </footer>
+</main>
+
+<script>
+function copyAddr(id, btn){
+  const text = document.getElementById(id).textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    const original = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(()=>{ btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  });
+}
+
+document.getElementById('rsvpForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const form = e.target;
+  const msg = document.getElementById('formMsg');
+  const data = new FormData(form);
+  try{
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method:'POST',
+      headers:{ 'Accept':'application/json' },
+      body:data
+    });
+    const result = await res.json();
+    msg.style.display='block';
+    if(result.success){
+      msg.className='ok';
+      msg.textContent = "Got it — we'll verify your payment and email your access link shortly.";
+      form.reset();
+    } else {
+      msg.className='err';
+      msg.textContent = "Something went wrong submitting the form. Please try again or reply to your confirmation email.";
+    }
+  } catch(err){
+    msg.style.display='block';
+    msg.className='err';
+    msg.textContent = "Something went wrong submitting the form. Please try again or reply to your confirmation email.";
+  }
+});
+</script>
+</body>
+</html>
